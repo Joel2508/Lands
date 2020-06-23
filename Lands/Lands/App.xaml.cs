@@ -35,8 +35,7 @@ namespace Lands
             containerRegistry.RegisterSingleton<IApiServices, ApiServices>();
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
-            containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<NavigationPage>();            
             containerRegistry.RegisterForNavigation<LandsPage, LandsPageViewModel>();
         }
     }

@@ -3,9 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              x:Class="Lands.App">
-  <Application.Resources>
+    <Application.Resources>
 
-    <!-- Application resource dictionary -->
-        <x:String x:Key="" ></x:String>
-  </Application.Resources>
+        <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <x:String x:Key="urlBase">https://restcountries.eu</x:String>
+            <x:String x:Key="serviPrefix">/rest</x:String>
+            <x:String x:Key="controller">/v2/all</x:String>
+            
+            
+            <Color x:Key="ColorBackgroud">#FFFFFF</Color>
+            <Color x:Key="ColorPrimary">#0339A6</Color>
+            <Color x:Key="ColorSecondary">#085CA6</Color>
+            <Color x:Key="ColorDanger">#F2B950</Color>
+            <Color x:Key="ColorAccent">#D94854</Color>
+            <Color x:Key="ColorFont">#0D0D0D</Color>
+            <Color x:Key="ColorFontInverse">#D94854</Color>
+        </ResourceDictionary>
+    </Application.Resources>
 </prism:PrismApplication>

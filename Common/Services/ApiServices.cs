@@ -6,11 +6,17 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Common.Services
 {
     public class ApiServices : IApiServices
     {
+        public bool CheckConnection()
+        {
+            return Connectivity.NetworkAccess == NetworkAccess.Internet;
+        }
+
         public async Task<Response> GestListAsync<T>(string urlBase, string servicePrefix, string controller)
         {
             try

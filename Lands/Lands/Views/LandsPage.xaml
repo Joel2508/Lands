@@ -3,6 +3,100 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="Lands.Views.LandsPage">
-  
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="Lands.Views.LandsPage"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource ColorBackgroud}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ffimageloadingsvg:SvgImageSourceConverter x:Key="SvgImageSourceConverter">
+            </ffimageloadingsvg:SvgImageSourceConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+
+            <StackLayout 
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All">
+                <SearchBar                
+                BackgroundColor="Silver"
+                Text="{Binding Filter, Mode=TwoWay}"
+                Placeholder="Search...."
+                SearchCommand="{Binding SearchCommand}">
+                </SearchBar>
+                <ListView
+                
+                BackgroundColor="Transparent"
+                HasUnevenRows="true"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Lands}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame
+                                CornerRadius="20"
+                                HasShadow="true"
+                                Margin="5">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <ffimageloading:CachedImage 
+                                    Grid.Column="0"
+                                    HeightRequest="30" 
+                                    Source="{Binding Flag, Converter={StaticResource SvgImageSourceConverter}}"
+                                    WidthRequest="60">
+                                        </ffimageloading:CachedImage>
+                                        <StackLayout
+                                    Grid.Column="1"
+                                    VerticalOptions="Center">
+                                            <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding Name}"
+                                        TextColor="Black">
+                                            </Label>
+                                            <Label
+                                        Text="{Binding Capital}"
+                                        TextColor="Black">
+                                            </Label>
+
+                                        </StackLayout>
+                                        <Image
+                                    Grid.Column="2"
+                                    HorizontalOptions="End"
+                                    Source="ic_chevron_right.png">
+                                        </Image>
+                                    </Grid>
+
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <ActivityIndicator              
+                AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.5"
+                AbsoluteLayout.LayoutFlags="All"            
+                Color="{StaticResource ColorFont}"                    
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                IsRunning="{Binding IsRunning}"                
+                VerticalOptions="Center"
+                WidthRequest="100">
+            </ActivityIndicator>
+        </AbsoluteLayout>
+    </ContentPage.Content>
 </ContentPage>

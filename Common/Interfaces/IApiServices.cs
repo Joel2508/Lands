@@ -9,5 +9,6 @@ namespace Common.Interfaces
     public interface IApiServices
     {
         Task<Response> GestListAsync<T>(string urlBase, string servicePrexi, string controller);
+        bool CheckConnection();
     }
 }
