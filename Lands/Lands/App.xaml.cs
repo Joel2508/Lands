@@ -27,16 +27,23 @@ namespace Lands
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/LandsPage");
+            await NavigationService.NavigateAsync("/NavigationPage/LandsPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IApiServices, ApiServices>();
+            containerRegistry.Register<IApiServices, ApiServices>();
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();            
-            containerRegistry.RegisterForNavigation<LandsPage, LandsPageViewModel>();
+            containerRegistry.RegisterForNavigation<LandsPage, LandsPageViewModel>();            
+            containerRegistry.RegisterForNavigation<LandPage, LandPageViewModel>();
+            containerRegistry.RegisterForNavigation<BordersPage, BordersPageViewModel>();
+            containerRegistry.RegisterForNavigation<CurrenciesPage, CurrenciesPageViewModel>();
+            containerRegistry.RegisterForNavigation<TranlationsPage, TranlationsPageViewModel>();
+            containerRegistry.RegisterForNavigation<LanguajesPage, LanguajesPageViewModel>();
+            containerRegistry.RegisterForNavigation<LocationPage, LocationPageViewModel>();
+            containerRegistry.RegisterForNavigation<LandTabbedPage, LandTabbedPageViewModel>();
         }
     }
 }

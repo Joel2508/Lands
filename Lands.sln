@@ -139,5 +139,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D0F9E8A1-6323-427C-9F32-09F8944540E0}
+		RESX_ExcelExportMode = SingleSheet
+		RESX_PrefixTranslations = False
 	EndGlobalSection
 EndGlobal

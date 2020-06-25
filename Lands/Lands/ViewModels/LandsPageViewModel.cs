@@ -19,7 +19,7 @@ namespace Lands.ViewModels
         private DelegateCommand _refreshCommand;
         private readonly INavigationService _navigationService;
         private readonly IApiServices _apiServices;
-        private ObservableCollection<LandsItemViewModel> _lands;
+        private List<LandsItemViewModel> _lands;
         private string _filter;
         private DelegateCommand _searchCommand;
         private List<LandsItemViewModel> listLands;
@@ -46,7 +46,7 @@ namespace Lands.ViewModels
 
         }
 
-        public ObservableCollection<LandsItemViewModel> Lands
+        public List<LandsItemViewModel> Lands
         {
             get => _lands;
             set => SetProperty(ref _lands, value);
@@ -85,7 +85,7 @@ namespace Lands.ViewModels
             }
             listLands = (List<LandsItemViewModel>)response.Result;
             Search();
-            
+
             IsRunning = false;
         }
 
@@ -93,15 +93,68 @@ namespace Lands.ViewModels
         {
             if (string.IsNullOrEmpty(Filter))
             {
-                Lands = new ObservableCollection<LandsItemViewModel>(listLands);
+                Lands = listLands.Select(l => new LandsItemViewModel(_navigationService)
+                {
+                    Alpha2Code = l.Alpha2Code,
+                    Alpha3Code = l.Alpha3Code,
+                    AltSpellings = l.AltSpellings,
+                    Area = l.Area,
+                    Borders = l.Borders,
+                    CallingCodes = l.CallingCodes,
+                    Capital = l.Capital,
+                    Cioc = l.Cioc,
+                    Currencies = l.Currencies,
+                    Demonym = l.Demonym,
+                    Flag = l.Flag,
+                    Gini = l.Gini,
+                    Languages = l.Languages,
+                    Latlng = l.Latlng,
+                    Name = l.Name,
+                    NativeName = l.NativeName,
+                    NumericCode = l.NumericCode,
+                    Population = l.Population,
+                    Region = l.Region,
+                    RegionalBlocs = l.RegionalBlocs,
+                    Subregion = l.Subregion,
+                    TopLevelDomain = l.TopLevelDomain,
+                    Timezones = l.Timezones,
+                    Translations = l.Translations,
+
+                }).ToList();
             }
             else
             {
-                Lands = new ObservableCollection<LandsItemViewModel>(
-                    listLands.Where(l => l.Name.ToUpper().Contains(Filter.ToUpper()) || l.Capital.ToUpper().Contains(Filter.ToUpper()))
-                    );
+                Lands = listLands.Select(l => new LandsItemViewModel(_navigationService)
+                {
+                    Alpha2Code = l.Alpha2Code,
+                    Alpha3Code = l.Alpha3Code,
+                    AltSpellings = l.AltSpellings,
+                    Area = l.Area,
+                    Borders = l.Borders,
+                    CallingCodes = l.CallingCodes,
+                    Capital = l.Capital,
+                    Cioc = l.Cioc,
+                    Currencies = l.Currencies,
+                    Demonym = l.Demonym,
+                    Flag = l.Flag,
+                    Gini = l.Gini,
+                    Languages = l.Languages,
+                    Latlng = l.Latlng,
+                    Name = l.Name,
+                    NativeName = l.NativeName,
+                    NumericCode = l.NumericCode,
+                    Population = l.Population,
+                    Region = l.Region,
+                    RegionalBlocs = l.RegionalBlocs,
+                    Subregion = l.Subregion,
+                    TopLevelDomain = l.TopLevelDomain,
+                    Timezones = l.Timezones,
+                    Translations = l.Translations,
+
+                }).Where(t => t.Name.ToUpper().Contains(Filter.ToUpper()) || t.Capital.ToUpper().Contains(Filter.ToUpper())).ToList();
             }
             Settings.Countries = JsonConvert.SerializeObject(Lands);
+            
         }
 
 
@@ -109,7 +162,6 @@ namespace Lands.ViewModels
         {
             LoadCountries();
             IsRefreshing = false;
-        }
-
+        }        
     }
 }

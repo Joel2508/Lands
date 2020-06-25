@@ -1,25 +1,34 @@
-﻿using Common.Models;
+﻿using Common.Helpers;
+using Common.Models;
+using Lands.Views;
+using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Lands.ViewModels
 {
     public class LandsItemViewModel : Land
     {
-        private DelegateCommand _selectLandCommand;
-        private readonly INavigationService _navigationService;
 
-        public DelegateCommand SelectLandCommand => _selectLandCommand ?? (_selectLandCommand = new DelegateCommand(SelectLand));
+        private readonly INavigationService _navigationService;
+        private DelegateCommand _selectLandCommand;
+
         public LandsItemViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
         }
-        private void SelectLand()
+        public DelegateCommand SelectLandCommand => _selectLandCommand ?? (_selectLandCommand = new DelegateCommand(SelectLandAsync));
+        private async void SelectLandAsync()
         {
+            var parameters = new NavigationParameters { { "Land", this } };
 
+            string page = $"{nameof(LandTabbedPage)}";
+            Settings.Land = JsonConvert.SerializeObject(this);
+            
+
+            await _navigationService.NavigateAsync(page, parameters);
         }
     }
 }
