@@ -871,6 +871,15 @@ namespace Lands.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Tranlations {
+            get {
+                return ResourceManager.GetString("Tranlations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Translations.
         /// </summary>
         public static string Translations {

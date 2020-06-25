@@ -18,6 +18,7 @@ namespace Lands.Helpers
 
         public static string Culture { get; set; }
 
+        public static string Translations => Resource.Translations;
         public static string Accept
         {
             get { return Resource.Accept; }

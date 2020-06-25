@@ -8,11 +8,11 @@
             Title="{Binding Title}"
             BackgroundColor="{StaticResource ColorBackgroud}">
     
-    <!--<TabbedPage.ToolbarItems>
+    <TabbedPage.ToolbarItems>
         <ToolbarItem 
             Command="{Binding LocationCommand}"
             Icon="ic_location_on"/>
-    </TabbedPage.ToolbarItems>-->
+    </TabbedPage.ToolbarItems>
     
     <TabbedPage.Children>
         <tabs:LandPage/>

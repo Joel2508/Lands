@@ -3,6 +3,182 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="Lands.Views.TranlationsPage">
-  
+             x:Class="Lands.Views.TranlationsPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:i18n="clr-namespace:Lands.Helpers"   
+             IconImageSource="ic_action_translate"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ffimageloadingsvg:SvgImageSourceConverter x:Key="SvgImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+            Padding="5">
+                <Label
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="{Binding Land.Name}"
+                TextColor="Black">
+                </Label>
+                <ffimageloading:CachedImage 
+                Source="{Binding Land.Flag, Converter={StaticResource SvgImageSourceConverter}}">
+                </ffimageloading:CachedImage>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                    HorizontalOptions="Start"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="{i18n:Translate German}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Start"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="{Binding Land.Translations.Germany}"
+                    TextColor="Blue">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Center"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Text="{i18n:Translate Spanish}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Center"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Text="{Binding Land.Translations.Spanish}"
+                    TextColor="Blue">
+                    </Label>
+                    <Label
+                    HorizontalOptions="End"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Text="{i18n:Translate French}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    HorizontalOptions="End"
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    Text="{Binding Land.Translations.French}"
+                    TextColor="Blue">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Start"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Text="{i18n:Translate Japanese}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Start"
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    Text="{Binding Land.Translations.Japanese}"
+                    TextColor="Blue">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Center"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Text="{i18n:Translate Italian}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Center"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Text="{Binding Land.Translations.Italian}"
+                    TextColor="Blue">
+                    </Label>
+                    <Label
+                    HorizontalOptions="End"
+                    Grid.Column="2"
+                    Grid.Row="3"
+                    Text="{i18n:Translate Brazilian}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    HorizontalOptions="End"
+                    Grid.Column="2"
+                    Grid.Row="4"
+                    Text="{Binding Land.Translations.Brazilian}"
+                    TextColor="Blue">
+                    </Label>
+
+                    <Label
+                    HorizontalOptions="Start"
+                    Grid.Column="0"
+                    Grid.Row="6"
+                    Text="{i18n:Translate Portuguese}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Start"
+                    Grid.Column="0"
+                    Grid.Row="7"
+                    Text="{Binding Land.Translations.Portugues}"
+                    TextColor="Blue">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Center"
+                    Grid.Column="1"
+                    Grid.Row="6"
+                    Text="{i18n:Translate Dutch}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Center"
+                    Grid.Column="1"
+                    Grid.Row="7"
+                    Text="{Binding Land.Translations.Dutch}"
+                    TextColor="Blue">
+                    </Label>
+                    <Label
+                    HorizontalOptions="End"
+                    Grid.Column="2"
+                    Grid.Row="6"
+                    Text="{i18n:Translate Croatian}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    HorizontalOptions="End"
+                    Grid.Column="2"
+                    Grid.Row="7"
+                    Text="{Binding Land.Translations.Croatian}"
+                    TextColor="Blue">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Center"
+                    Grid.Column="1"
+                    Grid.Row="9"
+                    Text="{i18n:Translate Persian}"
+                    TextColor="Black">
+                    </Label>
+                    <Label
+                    HorizontalOptions="Center"
+                    Grid.Column="1"
+                    Grid.Row="10"
+                    Text="{Binding Land.Translations.Persian}"
+                    TextColor="Blue">
+                    </Label>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
 </ContentPage>

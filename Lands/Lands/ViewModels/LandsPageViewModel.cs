@@ -1,6 +1,7 @@
 ﻿using Common.Helpers;
 using Common.Interfaces;
 using Common.Models;
+using Lands.Helpers;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -57,7 +58,7 @@ namespace Lands.ViewModels
 
         public LandsPageViewModel(INavigationService navigationService, IApiServices apiServices) : base(navigationService)
         {
-            Title = "Lands";
+            Title = Languages.Countries;
             _navigationService = navigationService;
             _apiServices = apiServices;
             LoadCountries();

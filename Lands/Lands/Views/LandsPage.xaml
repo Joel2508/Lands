@@ -25,7 +25,7 @@
                 <SearchBar                
                 BackgroundColor="Silver"
                 Text="{Binding Filter, Mode=TwoWay}"
-                Placeholder="Search...."
+                Placeholder="{i18n:Translate Search}"
                 SearchCommand="{Binding SearchCommand}">
                 </SearchBar>
                 <ListView
