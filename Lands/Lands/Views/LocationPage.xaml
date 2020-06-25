@@ -5,7 +5,19 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-             
-             x:Class="Lands.Views.LocationPage">
-  
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"    
+             x:Class="Lands.Views.LocationPage"
+             Title="{Binding Title}">
+    <StackLayout>
+        <maps:Map x:Name="MyMap"
+                  MapType="Street"/>
+        <StackLayout Padding="5">
+            <Button BackgroundColor="Green"
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    Margin="10,0"
+                    Text="Start Trip"
+                    TextColor="White"/>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>
