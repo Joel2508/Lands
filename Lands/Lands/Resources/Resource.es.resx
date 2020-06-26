@@ -202,7 +202,7 @@
     <value>Demoninación:</value>
   </data>
   <data name="GINI" xml:space="preserve">
-    <value>GINI:</value>
+    <value>Desigualdad:</value>
   </data>
   <data name="NativeName" xml:space="preserve">
     <value>Nombre Nativo:</value>
@@ -389,5 +389,8 @@
   </data>
   <data name="ConfirmLabel" xml:space="preserve">
     <value>¡Confirmar!</value>
+  </data>
+  <data name="Timezones" xml:space="preserve">
+    <value>Zonas horarias</value>
   </data>
 </root>

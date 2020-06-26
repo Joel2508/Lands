@@ -390,4 +390,7 @@
   <data name="ConfirmLabel" xml:space="preserve">
     <value>Confirmer !</value>
   </data>
+  <data name="Timezones" xml:space="preserve">
+    <value>Fuseaux horaires</value>
+  </data>
 </root>

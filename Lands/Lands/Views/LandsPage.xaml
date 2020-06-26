@@ -54,10 +54,10 @@
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
                                         <ffimageloading:CachedImage 
-                                    Grid.Column="0"
-                                    HeightRequest="30" 
-                                    Source="{Binding Flag, Converter={StaticResource SvgImageSourceConverter}}"
-                                    WidthRequest="60">
+                                                Grid.Column="0"
+                                                HeightRequest="30" 
+                                                Source="{Binding Flag, Converter={StaticResource SvgImageSourceConverter}}"
+                                                WidthRequest="60">
                                         </ffimageloading:CachedImage>
                                         <StackLayout
                                     Grid.Column="1"

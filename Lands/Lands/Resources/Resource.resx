@@ -288,4 +288,7 @@
   <data name="Tranlations" xml:space="preserve">
     <value></value>
   </data>
+  <data name="Timezones" xml:space="preserve">
+    <value>Time zones</value>
+  </data>
 </root>

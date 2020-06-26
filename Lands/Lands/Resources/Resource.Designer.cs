@@ -871,6 +871,15 @@ namespace Lands.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time zones.
+        /// </summary>
+        public static string Timezones {
+            get {
+                return ResourceManager.GetString("Timezones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string Tranlations {

@@ -34,6 +34,7 @@ namespace Lands
         {
             containerRegistry.Register<IApiServices, ApiServices>();
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+            containerRegistry.Register<IGeolocatorService, GeolocatorService>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();            
             containerRegistry.RegisterForNavigation<LandsPage, LandsPageViewModel>();            
